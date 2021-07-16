@@ -1,0 +1,41 @@
+.container {
+  position: relative;
+  width: 87.5%;
+  max-width: 1275px;
+  margin: 0 auto;
+  @include desktop {
+    width: 95%;
+  }
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.spaced {
+  justify-content: space-between;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.4rem;
+  padding: 0.5rem 2.6rem;
+
+  @include desktop {
+    padding: 0.9rem 3.75rem;
+  }
+}

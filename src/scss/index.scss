@@ -1,0 +1,373 @@
+@import "config";
+@import "utilities";
+
+:root {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 62.5%;
+
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 2px solid lightskyblue;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Nav
+
+.nav {
+  padding: 3rem 0;
+  margin-bottom: 2.5rem;
+  @include desktop {
+    margin-bottom: 5rem;
+    padding: 2.4rem 0;
+  }
+
+  &__heading {
+    font-size: 1.45rem;
+    @include desktop {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    gap: 1rem;
+
+    @include desktop {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// Search + Filter
+
+.search-filter {
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4.5rem;
+  }
+}
+
+.search-term__input,
+.region-filter__selector,
+.region-filter__options {
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 1.5rem 3rem;
+
+  @include desktop {
+    font-size: 1.45rem;
+    font-weight: 500;
+    padding: 1.9rem 3rem;
+  }
+}
+
+// Search Term
+
+.search-term {
+  &__input {
+    background-image: url("../images/search.svg");
+    background-position: left center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    margin-bottom: 4rem;
+    text-indent: 4rem;
+    width: 100%;
+
+    @include desktop {
+      margin-bottom: 0;
+      width: 475px;
+    }
+  }
+}
+
+// Region Filter
+
+.region-filter {
+  &__selector,
+  &__options {
+    cursor: pointer;
+    width: 210px;
+  }
+
+  &__options {
+    position: absolute;
+    gap: 0.75rem;
+    z-index: 1;
+    margin-top: 0.5rem;
+
+    & > *:hover {
+      color: lightskyblue;
+    }
+  }
+}
+
+// Countries
+
+.countries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+
+  @include tablet {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6rem;
+  }
+
+  @include desktop {
+    align-items: flex-start;
+    margin-top: 0;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  &__container {
+    position: relative;
+    height: 158px;
+    overflow: hidden;
+  }
+
+  &__card {
+    text-decoration: none;
+    color: inherit;
+    width: 80%;
+    max-width: 300px;
+
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+
+    @include desktop {
+      width: 20.5%;
+      margin-bottom: 8rem;
+    }
+  }
+
+  .card {
+    &__flag {
+      position: absolute;
+      margin-top: auto;
+      margin-bottom: auto;
+      top: 0;
+      bottom: 0;
+      min-height: 158px;
+    }
+
+    &__copy {
+      padding: 2.5rem 2.1rem;
+    }
+
+    &__heading {
+      font-size: 1.65rem;
+      margin-bottom: 1.4rem;
+      @include desktop {
+        font-size: 1.8rem;
+        margin-bottom: 1.75rem;
+      }
+    }
+
+    &__text {
+      font-size: 1.35rem;
+      margin-bottom: 0.35rem;
+      @include desktop {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      &--bold {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Country
+
+.country {
+  @include desktop {
+    display: flex;
+    align-items: center;
+    gap: 12rem;
+    margin-top: 8rem;
+  }
+
+  &__left {
+    margin-bottom: 4rem;
+    @include desktop {
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+
+  &__right {
+    margin-bottom: 6rem;
+
+    @include desktop {
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+
+  &__copy {
+    @include tablet {
+      display: flex;
+      gap: 14rem;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    font-family: inherit;
+    font-size: 1.4rem;
+    margin-bottom: 6rem;
+    margin-top: 4rem;
+
+    @include desktop {
+      font-size: 1.6rem;
+      margin-bottom: 8rem;
+      margin-top: 8rem;
+    }
+  }
+
+  &__container {
+    max-width: 500px;
+    max-height: 400px;
+    overflow: hidden;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+
+    @include desktop {
+      max-width: 100%;
+    }
+  }
+
+  &__flag {
+    width: 100%;
+  }
+
+  &__heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include desktop {
+      text-align: left;
+      font-size: 3rem;
+    }
+  }
+
+  &__copy {
+    @include tablet {
+      display: flex;
+      justify-content: center;
+    }
+    @include desktop {
+      justify-content: flex-start;
+    }
+  }
+
+  &__text {
+    font-size: 1.35rem;
+    margin-bottom: 1.2rem;
+
+    &--bold {
+      font-weight: 600;
+    }
+
+    @include desktop {
+      font-size: 1.6rem;
+    }
+  }
+
+  .borders {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      max-width: 475px;
+      margin: 0 auto;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      max-width: none;
+      justify-content: flex-start;
+    }
+
+    &__heading {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      white-space: nowrap;
+
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &__row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      @include tablet {
+        justify-content: center;
+      }
+
+      @include desktop {
+        justify-content: flex-start;
+      }
+    }
+
+    &__btn {
+      font-size: 1.1rem;
+    }
+  }
+
+  .copy__top,
+  .copy__bottom {
+    margin-bottom: 4.5rem;
+  }
+}

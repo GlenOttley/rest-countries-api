@@ -1,8 +1,8 @@
-@import "config";
-@import "utilities";
+@import 'config';
+@import 'utilities';
 
 :root {
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   font-size: 62.5%;
 
   body {
@@ -92,7 +92,7 @@ a {
 
 .search-term {
   &__input {
-    background-image: url("../images/search.svg");
+    background-image: url('../../public/assets/images/search.svg');
     background-position: left center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -132,23 +132,21 @@ a {
 // Countries
 
 .countries {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
   margin-top: 3rem;
+  gap: 30px;
+
+  @media screen and (min-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   @include tablet {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 6rem;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   @include desktop {
-    align-items: flex-start;
-    margin-top: 0;
-    justify-content: space-between;
-    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
   }
 
   &__container {
@@ -160,8 +158,8 @@ a {
   &__card {
     text-decoration: none;
     color: inherit;
-    width: 80%;
-    max-width: 300px;
+    // width: 80%;
+    // max-width: 300px;
 
     border-radius: 5px;
     overflow: hidden;
@@ -170,7 +168,7 @@ a {
     margin-bottom: 4rem;
 
     @include desktop {
-      width: 20.5%;
+      // width: 20.5%;
       margin-bottom: 8rem;
     }
   }

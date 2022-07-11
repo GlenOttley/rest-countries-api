@@ -1,26 +1,27 @@
-import React, { useState } from "react";
-import Nav from "../components/Nav";
-import Home from "../components/Home";
-import Country from "../features/country/Country";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../components/theme';
-import { GlobalStyles } from '../components/global';
+import { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from '../components/global'
+import Home from '../components/Home'
+import Nav from '../components/Nav'
+import { darkTheme, lightTheme } from '../components/theme'
+import Country from '../features/country/Country'
 
 function App() {
   const [theme, setTheme] = useState('light')
 
   return (
     <Router>
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme }>
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyles />
-      <Nav theme={theme} setTheme={setTheme} />
-      <Route exact path="/" component={Home} />
-      <Route path="/:alpha3Code" component={Country} />
+        <Nav theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route exact path='/' element={<Home />} />
+          <Route path='/:alpha3Code' element={<Country />} />
+        </Routes>
       </ThemeProvider>
     </Router>
-    
-  );
+  )
 }
 
-export default App;
+export default App
